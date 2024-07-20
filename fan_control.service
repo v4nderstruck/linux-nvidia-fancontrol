@@ -1,0 +1,14 @@
+[Unit]
+Description=Fan control of Nvidia GPU with nvidia-settings
+After=graphical.target
+
+[Service]
+ExecStart=fan_control.py /etc/fan_control.conf
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/run/user/1000/gdm/Xauthority
+Type=simple
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target
